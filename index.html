@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -23,7 +23,6 @@
       --accent-dark: #8f5f38;
       --brown: #2d2219;
       --brown-soft: #453428;
-      --success: #355c45;
       --shadow-soft: 0 18px 50px rgba(54, 36, 22, 0.08);
       --shadow-strong: 0 28px 80px rgba(43, 28, 16, 0.18);
       --radius-xl: 34px;
@@ -44,10 +43,20 @@
         radial-gradient(circle at top left, rgba(228, 210, 191, 0.7), transparent 28%),
         radial-gradient(circle at 90% 12%, rgba(239, 214, 222, 0.65), transparent 24%),
         linear-gradient(180deg, #faf6f1 0%, #f5eee7 100%);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    img { display: block; width: 100%; }
-    a { text-decoration: none; color: inherit; }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     .container {
       width: min(var(--max), calc(100% - 40px));
@@ -59,7 +68,7 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(18px);
-      background: rgba(248, 244, 239, 0.78);
+      background: rgba(248, 244, 239, 0.82);
       border-bottom: 1px solid rgba(63, 47, 34, 0.08);
     }
 
@@ -75,27 +84,29 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
+      min-width: 0;
     }
 
     .brand-top {
       font-size: 0.78rem;
-      letter-spacing: 0.20em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
     }
 
     .brand-name {
-      font-family: "Cormorant Garamond", serif;
+      font-family: "Playfair Display", serif;
       font-size: 2rem;
-      line-height: 0.95;
+      line-height: 1;
       font-weight: 600;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.01em;
     }
 
     .header-actions {
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-shrink: 0;
     }
 
     .pill {
@@ -120,11 +131,14 @@
       border-radius: 999px;
       border: 1px solid transparent;
       font-weight: 700;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
       cursor: pointer;
+      text-align: center;
     }
 
-    .btn:hover { transform: translateY(-1px); }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--brown) 0%, var(--brown-soft) 100%);
@@ -142,6 +156,17 @@
       background: linear-gradient(135deg, #c18a5d 0%, #a66d44 100%);
       color: white;
       box-shadow: 0 14px 30px rgba(154, 101, 61, 0.22);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--brown);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: white;
+      border-color: rgba(255,255,255,0.18);
     }
 
     .hero {
@@ -169,20 +194,26 @@
       font-size: 0.9rem;
       box-shadow: 0 8px 24px rgba(53,35,20,0.05);
       margin-bottom: 18px;
+      flex-wrap: wrap;
     }
 
     h1 {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(3.5rem, 7vw, 6.1rem);
-  line-height: 0.98;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  max-width: 10ch;
-  font-variant-ligatures: none;
-  font-feature-settings: "liga" 0, "clig" 0;
-}
-    h1 .accent { color: var(--accent-dark); font-style: italic; }
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 6vw, 5.6rem);
+      line-height: 1.02;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      max-width: 10ch;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0;
+      text-wrap: balance;
+    }
+
+    h1 .accent {
+      color: var(--accent-dark);
+      font-style: italic;
+    }
 
     .hero-text {
       max-width: 620px;
@@ -285,7 +316,7 @@
       left: 31%;
       bottom: 186px;
       padding: 24px;
-      background: rgba(255,250,246,0.88);
+      background: rgba(255,250,246,0.9);
       backdrop-filter: blur(14px);
     }
 
@@ -300,11 +331,13 @@
 
     .floating-card strong {
       display: block;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2.05rem;
-      line-height: 0.95;
+      font-family: "Playfair Display", serif;
+      font-size: 1.85rem;
+      line-height: 1.04;
       font-weight: 600;
       margin-bottom: 10px;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0;
     }
 
     .floating-card p {
@@ -355,17 +388,18 @@
       margin-bottom: 8px;
     }
 
-   .section h2 {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.5rem, 4vw, 3.9rem);
-  line-height: 1.02;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  max-width: 10ch;
-  font-variant-ligatures: none;
-  font-feature-settings: "liga" 0, "clig" 0;
-}
+    .section h2 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.3rem, 4vw, 3.7rem);
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      max-width: 11ch;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0;
+      text-wrap: balance;
+    }
 
     .section-intro {
       max-width: 560px;
@@ -417,7 +451,7 @@
     .product-top h3 {
       margin: 0;
       font-size: 1.28rem;
-      line-height: 1.15;
+      line-height: 1.2;
     }
 
     .price {
@@ -484,7 +518,10 @@
       gap: 18px;
     }
 
-    .gallery-col { display: grid; gap: 18px; }
+    .gallery-col {
+      display: grid;
+      gap: 18px;
+    }
 
     .gallery-item {
       position: relative;
@@ -506,14 +543,16 @@
       transition: transform .7s ease;
     }
 
-    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
 
     .gallery-overlay {
       position: absolute;
       inset: auto 18px 18px 18px;
       padding: 16px 18px;
       border-radius: 22px;
-      background: rgba(255,255,255,0.78);
+      background: rgba(255,255,255,0.82);
       backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
@@ -587,11 +626,14 @@
 
     .contact-box h2 {
       margin: 0 0 16px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.6rem, 4vw, 4.2rem);
-      line-height: 0.94;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1.04;
       font-weight: 600;
-      max-width: 9ch;
+      max-width: 10ch;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0;
+      text-wrap: balance;
     }
 
     .contact-box p {
@@ -646,9 +688,9 @@
     .contact-card strong {
       display: block;
       margin-top: 14px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
-      line-height: 1;
+      font-family: "Playfair Display", serif;
+      font-size: 1.9rem;
+      line-height: 1.06;
       font-weight: 600;
       color: white;
     }
@@ -658,17 +700,6 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 24px;
-    }
-
-    .btn-light {
-      background: white;
-      color: var(--brown);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: white;
-      border-color: rgba(255,255,255,0.18);
     }
 
     .footer {
@@ -696,21 +727,36 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero-visual { min-height: 760px; }
+      .hero-visual {
+        min-height: 760px;
+      }
     }
 
     @media (max-width: 820px) {
-      .header-actions .pill:nth-child(2) { display: none; }
-
-      .hero {
-        padding-top: 34px;
+      .header-actions .pill:nth-child(1) {
+        display: none;
       }
 
-      h1 { max-width: 100%; }
+      .hero {
+        padding-top: 28px;
+      }
 
-      .hero-visual { min-height: 620px; }
-      .photo-main { width: 78%; }
-      .photo-small { width: 54%; }
+      h1 {
+        max-width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 620px;
+      }
+
+      .photo-main {
+        width: 78%;
+      }
+
+      .photo-small {
+        width: 54%;
+      }
+
       .floating-card {
         width: 250px;
         left: 25%;
@@ -728,30 +774,285 @@
       .hero-proof {
         grid-template-columns: 1fr;
       }
+
+      .gallery-overlay {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .gallery-overlay .btn {
+        width: 100%;
+      }
     }
 
-    @media (max-width: 560px) {
-      .container { width: min(var(--max), calc(100% - 22px)); }
-      .header-actions .pill,
-      .header-actions .btn-secondary { display: none; }
-      .brand-name { font-size: 1.55rem; }
-      .header-inner { min-height: 72px; }
-      .hero-visual { min-height: 500px; }
-      .photo-main { width: 76%; border-radius: 24px; }
-      .photo-small { width: 52%; border-radius: 22px; bottom: 20px; }
-      .floating-card {
-        width: 205px;
-        left: 18%;
-        bottom: 120px;
-        border-radius: 22px;
-        padding: 16px;
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max), calc(100% - 22px));
       }
-      .floating-card strong { font-size: 1.5rem; }
-      .floating-badge { display: none; }
-      .contact-box { padding: 20px; border-radius: 28px; }
-      .gallery-item.tall { min-height: 380px; }
+
+      .site-header {
+        position: sticky;
+      }
+
+      .header-inner {
+        min-height: 70px;
+        gap: 12px;
+      }
+
+      .header-actions .pill {
+        display: none;
+      }
+
+      .header-actions .btn-secondary {
+        min-height: 44px;
+        padding: 0 16px;
+        font-size: 0.92rem;
+      }
+
+      .brand-top {
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+      }
+
+      .brand-name {
+        font-size: 1.42rem;
+      }
+
+      .hero {
+        padding: 24px 0 8px;
+      }
+
+      .eyebrow {
+        font-size: 0.77rem;
+        padding: 8px 12px;
+        margin-bottom: 14px;
+      }
+
+      h1 {
+        font-size: clamp(2.45rem, 11vw, 3.3rem);
+        line-height: 1.04;
+        letter-spacing: -0.015em;
+      }
+
+      .hero-text {
+        font-size: 0.98rem;
+        margin-top: 14px;
+      }
+
+      .hero-actions {
+        margin-top: 22px;
+        gap: 10px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-proof {
+        margin-top: 18px;
+        gap: 10px;
+      }
+
+      .proof-item {
+        padding: 14px;
+        border-radius: 18px;
+      }
+
+      .hero-visual {
+        min-height: auto;
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .blob,
+      .floating-badge {
+        display: none;
+      }
+
+      .photo-main,
+      .photo-small,
+      .floating-card {
+        position: relative;
+        inset: auto;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        width: 100%;
+        box-shadow: 0 14px 34px rgba(53,35,20,0.08);
+      }
+
+      .photo-main {
+        aspect-ratio: 1.05;
+        border-radius: 24px;
+      }
+
+      .photo-small {
+        display: none;
+      }
+
+      .floating-card {
+        border-radius: 22px;
+        padding: 18px;
+        background: rgba(255,250,246,0.95);
+      }
+
+      .floating-card strong {
+        font-size: 1.45rem;
+      }
+
+      .section {
+        padding: 22px 0 10px;
+      }
+
+      .section-head {
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .section-kicker {
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+      }
+
+      .section h2 {
+        font-size: clamp(1.95rem, 8.5vw, 2.6rem);
+        line-height: 1.08;
+        max-width: 100%;
+      }
+
+      .section-intro {
+        font-size: 0.96rem;
+        max-width: 100%;
+      }
+
+      .quick-order,
+      .value-grid,
+      .reviews {
+        gap: 14px;
+      }
+
+      .product-card,
+      .value-card,
+      .review-card {
+        border-radius: 22px;
+      }
+
+      .product-image {
+        aspect-ratio: 1.14;
+      }
+
+      .product-body {
+        padding: 16px 16px 18px;
+      }
+
+      .product-top {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .product-top h3 {
+        font-size: 1.18rem;
+      }
+
+      .price {
+        font-size: 0.98rem;
+      }
+
+      .product-meta {
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .mini-chip {
+        font-size: 0.78rem;
+        padding: 7px 10px;
+      }
+
+      .product-actions {
+        flex-direction: column;
+      }
+
+      .product-actions .btn {
+        width: 100%;
+      }
+
+      .gallery-wrap,
+      .gallery-col {
+        gap: 14px;
+      }
+
+      .gallery-item,
       .gallery-item.medium,
-      .gallery-item { min-height: 240px; }
+      .gallery-item.tall {
+        min-height: 250px;
+        border-radius: 22px;
+      }
+
+      .gallery-overlay {
+        inset: auto 12px 12px 12px;
+        padding: 14px;
+        border-radius: 18px;
+        gap: 10px;
+      }
+
+      .reviews .review-card {
+        padding: 20px 18px;
+      }
+
+      .contact-section {
+        padding: 44px 0 56px;
+      }
+
+      .contact-box {
+        padding: 18px;
+        border-radius: 24px;
+        gap: 16px;
+      }
+
+      .contact-box h2 {
+        font-size: clamp(2rem, 8vw, 2.7rem);
+        max-width: 100%;
+      }
+
+      .contact-box p {
+        font-size: 0.96rem;
+        margin-bottom: 18px;
+      }
+
+      .contact-actions {
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .contact-actions .btn {
+        width: 100%;
+      }
+
+      .contact-item,
+      .contact-card {
+        border-radius: 18px;
+      }
+
+      .contact-item {
+        padding: 14px 15px;
+      }
+
+      .contact-card {
+        padding: 16px;
+        min-height: auto;
+      }
+
+      .contact-card strong {
+        font-size: 1.55rem;
+      }
+
+      .footer {
+        padding: 10px 0 24px;
+        font-size: 0.84rem;
+      }
     }
   </style>
 </head>
