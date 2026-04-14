@@ -32,7 +32,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -139,9 +138,7 @@
       text-align: center;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
+    .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--brown) 0%, var(--brown-soft) 100%);
@@ -181,9 +178,17 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1.02fr 0.98fr;
-      gap: 42px;
-      align-items: center;
+      grid-template-areas:
+        "top visual"
+        "bottom visual";
+      column-gap: 42px;
+      row-gap: 12px;
+      align-items: start;
     }
+
+    .hero-top { grid-area: top; }
+    .hero-bottom { grid-area: bottom; }
+    .hero-visual { grid-area: visual; }
 
     .eyebrow {
       display: inline-flex;
@@ -220,7 +225,7 @@
 
     .hero-text {
       max-width: 620px;
-      margin: 18px 0 0;
+      margin: 8px 0 0;
       font-size: 1.08rem;
       color: var(--muted);
     }
@@ -262,7 +267,8 @@
 
     .hero-visual {
       position: relative;
-      min-height: 680px;
+      min-height: 620px;
+      align-self: center;
     }
 
     .blob {
@@ -301,26 +307,27 @@
     }
 
     .photo-main {
-      width: 74%;
+      width: 72%;
       right: 0;
-      top: 22px;
+      top: 10px;
       aspect-ratio: 0.9;
     }
 
     .photo-small {
-      width: 47%;
+      width: 46%;
       left: 0;
-      bottom: 34px;
+      bottom: 30px;
       aspect-ratio: 0.82;
     }
 
     .floating-card {
-      width: 300px;
-      left: 31%;
-      bottom: 186px;
+      width: 290px;
+      left: 28%;
+      bottom: 176px;
       padding: 24px;
       background: rgba(255,250,246,0.9);
       backdrop-filter: blur(14px);
+      z-index: 3;
     }
 
     .floating-card .small,
@@ -350,14 +357,15 @@
     }
 
     .floating-badge {
-      right: 26px;
-      bottom: 22px;
+      right: 20px;
+      bottom: 26px;
       padding: 18px 20px;
       background: rgba(45,34,25,0.92);
       color: white;
       border-color: rgba(255,255,255,0.08);
       box-shadow: var(--shadow-strong);
       max-width: 220px;
+      z-index: 4;
     }
 
     .floating-badge strong {
@@ -719,6 +727,14 @@
         grid-template-columns: 1fr;
       }
 
+      .hero-grid {
+        grid-template-areas:
+          "top"
+          "visual"
+          "bottom";
+        row-gap: 18px;
+      }
+
       .section-head {
         align-items: start;
       }
@@ -828,8 +844,12 @@
       }
 
       .hero-grid {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "top"
+          "visual"
+          "bottom";
         gap: 18px;
         align-items: stretch;
       }
@@ -850,29 +870,12 @@
         line-height: 0.98;
         letter-spacing: -0.02em;
         max-width: 100%;
-        margin-bottom: 4px;
-      }
-
-      .hero-text {
-        margin-top: 14px;
-        font-size: 1rem;
-        line-height: 1.55;
-      }
-
-      .hero-actions {
-        margin-top: 20px;
-        gap: 10px;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-        min-height: 56px;
-        font-size: 1rem;
+        margin-bottom: 0;
       }
 
       .hero-visual {
         min-height: 430px;
-        margin-top: 4px;
+        margin-top: 0;
         position: relative;
         display: block;
       }
@@ -938,6 +941,23 @@
 
       .floating-badge {
         display: none;
+      }
+
+      .hero-text {
+        margin-top: 0;
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        margin-top: 20px;
+        gap: 10px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        min-height: 56px;
+        font-size: 1rem;
       }
 
       .hero-proof {
@@ -1123,36 +1143,37 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-top">
           <div class="eyebrow">květinářství Praha · čerstvé kytice · dárkové vazby · svatební floristika</div>
-
           <h1>Květiny z Prahy, které lidé chtějí <span class="accent">objednat</span> hned</h1>
+        </div>
 
-          <div class="hero-visual">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
+        <div class="hero-visual">
+          <div class="blob blob-1"></div>
+          <div class="blob blob-2"></div>
 
-            <div class="photo-main">
-              <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80" alt="Květinářství Praha – stylová květinová vazba" />
-            </div>
-
-            <div class="photo-small">
-              <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=900&q=80" alt="Detail čerstvé kytice z květinářství" />
-            </div>
-
-            <div class="floating-card">
-              <div class="small">ukázkový návrh</div>
-              <strong>Web, který prodává květiny místo toho, aby jen vypadal hezky</strong>
-              <p>Jasná nabídka, snadný kontakt a lepší první dojem během pár sekund.</p>
-            </div>
-
-            <div class="floating-badge">
-              <div class="small">na první pohled</div>
-              <strong>objednávka bez chaosu</strong>
-              <span>Přesně to, co malé květinářství potřebuje.</span>
-            </div>
+          <div class="photo-main">
+            <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80" alt="Květinářství Praha – stylová květinová vazba" />
           </div>
 
+          <div class="photo-small">
+            <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=900&q=80" alt="Detail čerstvé kytice z květinářství" />
+          </div>
+
+          <div class="floating-card">
+            <div class="small">ukázkový návrh</div>
+            <strong>Web, který prodává květiny místo toho, aby jen vypadal hezky</strong>
+            <p>Jasná nabídka, snadný kontakt a lepší první dojem během pár sekund.</p>
+          </div>
+
+          <div class="floating-badge">
+            <div class="small">na první pohled</div>
+            <strong>objednávka bez chaosu</strong>
+            <span>Přesně to, co malé květinářství potřebuje.</span>
+          </div>
+        </div>
+
+        <div class="hero-bottom">
           <p class="hero-text">
             Urban Art Florist je květinářství v Praze Vršovicích, kde vznikají čerstvé kytice pro radost,
             dárky i výjimečné chvíle. Elegantní floristika, osobní přístup a rychlá objednávka bez zbytečných kroků.
