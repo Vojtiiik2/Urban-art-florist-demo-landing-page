@@ -32,6 +32,7 @@
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -100,6 +101,8 @@
       line-height: 1;
       font-weight: 600;
       letter-spacing: -0.01em;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0;
     }
 
     .header-actions {
@@ -795,8 +798,9 @@
       }
 
       .header-inner {
-        min-height: 70px;
+        min-height: 72px;
         gap: 12px;
+        align-items: center;
       }
 
       .header-actions .pill {
@@ -804,14 +808,15 @@
       }
 
       .header-actions .btn-secondary {
-        min-height: 44px;
-        padding: 0 16px;
-        font-size: 0.92rem;
+        min-height: 42px;
+        padding: 0 14px;
+        font-size: 0.9rem;
       }
 
       .brand-top {
         font-size: 0.68rem;
         letter-spacing: 0.14em;
+        line-height: 1.35;
       }
 
       .brand-name {
@@ -819,88 +824,131 @@
       }
 
       .hero {
-        padding: 24px 0 8px;
+        padding: 20px 0 10px;
+      }
+
+      .hero-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        align-items: stretch;
       }
 
       .eyebrow {
-        font-size: 0.77rem;
-        padding: 8px 12px;
-        margin-bottom: 14px;
+        font-size: 0.76rem;
+        line-height: 1.45;
+        padding: 10px 14px;
+        margin-bottom: 12px;
+        border-radius: 22px;
+        display: inline-flex;
+        width: auto;
+        max-width: 100%;
       }
 
       h1 {
-        font-size: clamp(2.45rem, 11vw, 3.3rem);
-        line-height: 1.04;
-        letter-spacing: -0.015em;
+        font-size: clamp(2.7rem, 11vw, 3.5rem);
+        line-height: 0.98;
+        letter-spacing: -0.02em;
+        max-width: 100%;
+        margin-bottom: 4px;
       }
 
       .hero-text {
-        font-size: 0.98rem;
         margin-top: 14px;
+        font-size: 1rem;
+        line-height: 1.55;
       }
 
       .hero-actions {
-        margin-top: 22px;
+        margin-top: 20px;
         gap: 10px;
       }
 
       .hero-actions .btn {
         width: 100%;
-      }
-
-      .hero-proof {
-        margin-top: 18px;
-        gap: 10px;
-      }
-
-      .proof-item {
-        padding: 14px;
-        border-radius: 18px;
+        min-height: 56px;
+        font-size: 1rem;
       }
 
       .hero-visual {
-        min-height: auto;
-        margin-top: 22px;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 12px;
+        min-height: 430px;
+        margin-top: 4px;
+        position: relative;
+        display: block;
       }
 
-      .blob,
-      .floating-badge {
+      .blob {
         display: none;
       }
 
       .photo-main,
       .photo-small,
-      .floating-card {
-        position: relative;
-        inset: auto;
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        width: 100%;
-        box-shadow: 0 14px 34px rgba(53,35,20,0.08);
+      .floating-card,
+      .floating-badge {
+        position: absolute;
       }
 
       .photo-main {
-        aspect-ratio: 1.05;
-        border-radius: 24px;
+        width: 74%;
+        right: 0;
+        top: 0;
+        aspect-ratio: 0.84;
+        border-radius: 26px;
+        z-index: 1;
       }
 
       .photo-small {
-        display: none;
+        display: block;
+        width: 46%;
+        left: 0;
+        bottom: 0;
+        aspect-ratio: 0.88;
+        border-radius: 24px;
+        z-index: 2;
       }
 
       .floating-card {
+        width: 56%;
+        left: 24%;
+        bottom: 84px;
+        padding: 16px;
         border-radius: 22px;
-        padding: 18px;
-        background: rgba(255,250,246,0.95);
+        background: rgba(255, 250, 246, 0.94);
+        backdrop-filter: blur(14px);
+        z-index: 3;
+        box-shadow: 0 16px 32px rgba(53,35,20,0.12);
+      }
+
+      .floating-card .small {
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        margin-bottom: 6px;
       }
 
       .floating-card strong {
-        font-size: 1.45rem;
+        font-size: 1.18rem;
+        line-height: 1.04;
+        margin-bottom: 8px;
+      }
+
+      .floating-card p {
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+
+      .floating-badge {
+        display: none;
+      }
+
+      .hero-proof {
+        margin-top: 18px;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .proof-item {
+        padding: 14px 15px;
+        border-radius: 18px;
       }
 
       .section {
@@ -1077,7 +1125,34 @@
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">květinářství Praha · čerstvé kytice · dárkové vazby · svatební floristika</div>
+
           <h1>Květiny z Prahy, které lidé chtějí <span class="accent">objednat</span> hned</h1>
+
+          <div class="hero-visual">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+
+            <div class="photo-main">
+              <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80" alt="Květinářství Praha – stylová květinová vazba" />
+            </div>
+
+            <div class="photo-small">
+              <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=900&q=80" alt="Detail čerstvé kytice z květinářství" />
+            </div>
+
+            <div class="floating-card">
+              <div class="small">ukázkový návrh</div>
+              <strong>Web, který prodává květiny místo toho, aby jen vypadal hezky</strong>
+              <p>Jasná nabídka, snadný kontakt a lepší první dojem během pár sekund.</p>
+            </div>
+
+            <div class="floating-badge">
+              <div class="small">na první pohled</div>
+              <strong>objednávka bez chaosu</strong>
+              <span>Přesně to, co malé květinářství potřebuje.</span>
+            </div>
+          </div>
+
           <p class="hero-text">
             Urban Art Florist je květinářství v Praze Vršovicích, kde vznikají čerstvé kytice pro radost,
             dárky i výjimečné chvíle. Elegantní floristika, osobní přístup a rychlá objednávka bez zbytečných kroků.
@@ -1101,31 +1176,6 @@
               <strong>Rychlá objednávka</strong>
               <span>telefonicky nebo jednoduše přes jasný kontakt na webu</span>
             </div>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="blob blob-1"></div>
-          <div class="blob blob-2"></div>
-
-          <div class="photo-main">
-            <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80" alt="Květinářství Praha – stylová květinová vazba" />
-          </div>
-
-          <div class="photo-small">
-            <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=900&q=80" alt="Detail čerstvé kytice z květinářství" />
-          </div>
-
-          <div class="floating-card">
-            <div class="small">ukázkový návrh</div>
-            <strong>Web, který prodává květiny místo toho, aby jen vypadal hezky</strong>
-            <p>Jasná nabídka, snadný kontakt a lepší první dojem během pár sekund.</p>
-          </div>
-
-          <div class="floating-badge">
-            <div class="small">na první pohled</div>
-            <strong>objednávka bez chaosu</strong>
-            <span>Přesně to, co malé květinářství potřebuje.</span>
           </div>
         </div>
       </div>
