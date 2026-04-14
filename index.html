@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -21,6 +21,8 @@
       --line: rgba(63, 47, 34, 0.10);
       --accent: #b57a4d;
       --accent-dark: #8f5f38;
+      --green-accent: #748a6a;
+      --green-soft: rgba(116, 138, 106, 0.10);
       --brown: #2d2219;
       --brown-soft: #453428;
       --shadow-soft: 0 18px 50px rgba(54, 36, 22, 0.08);
@@ -95,10 +97,10 @@
     }
 
     .brand-name {
-      font-family: "Playfair Display", serif;
-      font-size: 2rem;
+      font-family: "Libre Baskerville", serif;
+      font-size: 1.95rem;
       line-height: 1;
-      font-weight: 600;
+      font-weight: 400;
       letter-spacing: -0.01em;
       font-variant-ligatures: none;
       font-feature-settings: "liga" 0, "clig" 0;
@@ -122,6 +124,13 @@
       color: var(--muted);
       font-size: 0.92rem;
       white-space: nowrap;
+      transition: border-color .2s ease, color .2s ease, background .2s ease;
+    }
+
+    .pill:hover {
+      border-color: rgba(116, 138, 106, 0.22);
+      color: #5f7457;
+      background: rgba(255,255,255,0.72);
     }
 
     .btn {
@@ -150,6 +159,11 @@
       background: rgba(255,255,255,0.84);
       color: var(--text);
       border-color: rgba(63, 47, 34, 0.10);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(116, 138, 106, 0.26);
+      color: #51664c;
     }
 
     .btn-accent {
@@ -197,7 +211,7 @@
       padding: 10px 14px;
       border-radius: 999px;
       background: rgba(255,255,255,0.8);
-      border: 1px solid rgba(63,47,34,0.08);
+      border: 1px solid rgba(116, 138, 106, 0.16);
       color: var(--muted);
       font-size: 0.9rem;
       box-shadow: 0 8px 24px rgba(53,35,20,0.05);
@@ -290,7 +304,7 @@
     .blob-2 {
       width: 230px;
       height: 230px;
-      background: rgba(235, 187, 207, 0.32);
+      background: rgba(169, 194, 158, 0.18);
       left: 14px;
       bottom: 60px;
     }
@@ -360,7 +374,7 @@
       right: 20px;
       bottom: 26px;
       padding: 18px 20px;
-      background: rgba(45,34,25,0.92);
+      background: linear-gradient(135deg, rgba(45,34,25,0.94) 0%, rgba(74,87,66,0.96) 100%);
       color: white;
       border-color: rgba(255,255,255,0.08);
       box-shadow: var(--shadow-strong);
@@ -486,8 +500,8 @@
     .mini-chip {
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(183, 134, 92, 0.10);
-      color: var(--accent-dark);
+      background: var(--green-soft);
+      color: #627858;
       font-size: 0.84rem;
       font-weight: 600;
     }
@@ -630,7 +644,7 @@
       border-radius: 36px;
       background:
         radial-gradient(circle at top right, rgba(199, 160, 126, 0.16), transparent 28%),
-        linear-gradient(135deg, #2a2119 0%, #3d2f25 100%);
+        linear-gradient(135deg, #2a2119 0%, #3d2f25 72%, #4f6650 100%);
       color: white;
       box-shadow: var(--shadow-strong);
     }
@@ -836,7 +850,7 @@
       }
 
       .brand-name {
-        font-size: 1.42rem;
+        font-size: 1.38rem;
       }
 
       .hero {
