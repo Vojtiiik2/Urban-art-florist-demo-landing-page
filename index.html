@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&family=Poiret+One&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -96,44 +96,16 @@
       color: var(--muted);
     }
 
-.brand-name {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  line-height: 0.78;
-  font-family: "Poiret One", sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  text-transform: lowercase;
-}
+    .brand-name {
+      font-family: "Libre Baskerville", serif;
+      font-size: 1.95rem;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0;
+    }
 
-.brand-name span {
-  display: block;
-  font-size: 1.5rem;
-}
-
-/* jemný chaos jako u jejich loga */
-.brand-name span:nth-child(1) {
-  letter-spacing: 0.04em;
-}
-
-.brand-name span:nth-child(2) {
-  margin-left: 10px;
-  letter-spacing: 0.06em;
-}
-
-.brand-name span:nth-child(3) {
-  margin-left: 4px;
-  letter-spacing: 0.03em;
-}
-
-.brand-logo {
-  display: block;
-  width: auto;
-  height: 44px;
-  max-width: 100%;
-  object-fit: contain;
-}
     .header-actions {
       display: flex;
       align-items: center;
@@ -877,13 +849,9 @@
         line-height: 1.35;
       }
 
-  .brand-name {
-  line-height: 0.82;
-}
-
-.brand-name span {
-  font-size: 1.3rem;
-}
+      .brand-name {
+        font-size: 1.38rem;
+      }
 
       .hero {
         padding: 20px 0 10px;
@@ -1167,27 +1135,17 @@
         padding: 10px 0 24px;
         font-size: 0.84rem;
       }
-      
-@media (min-width: 900px) {
-  .brand-name span {
-    font-size: 1.9rem;
-  }
-}
-
-      
-    
+    }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-     <div class="brand">
-  <div class="brand-top">květinářství · Praha Vršovice</div>
- <div class="brand-name">
-  <span>urban</span>
-  <span>art</span>
-  <span>florist</span>
-</div>
+      <div class="brand">
+        <div class="brand-top">květinářství · Praha Vršovice</div>
+        <div class="brand-name">Urban Art Florist</div>
+      </div>
+
       <div class="header-actions">
         <div class="pill">Praha 10 – Vršovice</div>
         <a href="tel:+420774306889" class="pill">+420 774 306 889</a>
